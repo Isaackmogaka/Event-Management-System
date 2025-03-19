@@ -24,6 +24,13 @@ class EventReport(models.Model):
     resolved = models.BooleanField(default=False)
     reported_at = models.DateTimeField(auto_now_add=True)
 
+class Review(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_reviews")  # Changed related_name
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="event_reviews")  # Changed related_name
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 class SystemLog(models.Model):
     action = models.CharField(max_length=255)
     performed_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)

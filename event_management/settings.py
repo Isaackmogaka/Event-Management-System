@@ -159,9 +159,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     # Third-party libraries
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',  # Handles CORS for frontend access
 
     # Custom apps
@@ -237,8 +238,6 @@ CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:3000"
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Authentication Settings (If using a custom user model)
-# AUTH_USER_MODEL = 'users.CustomUser'
 
 
 

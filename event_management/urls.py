@@ -14,9 +14,31 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# from django.contrib import admin
+# from django.urls import path, include
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('api/users/', include('users.urls')),  # Include users app URLs
+#     path('api/events/', include('events.urls')),  # Include events app URLs
+# ]
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.shortcuts import redirect
+
+def redirect_to_admin(request):
+
+    return redirect("/admin/")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("", redirect_to_admin),  # Redirect '/' to '/admin/'
+    path("api/", include("users.urls")),  # Include other app URLs
 ]
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/users/', include('users.urls')),
+    path('api/events/', include('events.urls')),
+]
+
+
