@@ -168,6 +168,8 @@ INSTALLED_APPS = [
     # Custom apps
     'events',
     'users',
+
+    
 ]
 
 MIDDLEWARE = [

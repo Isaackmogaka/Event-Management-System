@@ -1,16 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 class Event(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    location = models.CharField(max_length=255)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_events')  
-    created_at = models.DateTimeField(auto_now_add=True)
-    is_public = models.BooleanField(default=True) 
+    title = models.CharField(max_length=255)  # Event title
+    description = models.TextField()  # Event details
+    location = models.CharField(max_length=255)  # Where the event will be
+    start_time = models.DateTimeField()  # When it starts
+    end_time = models.DateTimeField()  # When it ends
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="created_events")  
+    created_at = models.DateTimeField(auto_now_add=True)  # Auto set timestamp
 
 
 class AdminNote(models.Model):
