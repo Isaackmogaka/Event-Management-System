@@ -41,4 +41,10 @@ urlpatterns = [
     path('api/events/', include('events.urls')),
 ]
 
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("api/auth/", include("users.urls")),  # Ensure this matches your URLs
+    path("api/events/", include("events.urls")),
+]
+
 
