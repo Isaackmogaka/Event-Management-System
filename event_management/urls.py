@@ -47,4 +47,16 @@ urlpatterns = [
     path("api/events/", include("events.urls")),
 ]
 
+urlpatterns = [
+    path("api/auth/", include("authentication.urls")),  # Authentication endpoints
+    path("api/profile/", include("profiles.urls")),  # Profiles app (make sure this line exists!)
+]
 
+urlpatterns = [
+    # other paths...
+    path('api/auth/', include('authentication.urls')),
+]
+
+urlpatterns = [
+    path("api/profile/", include("profiles.urls")),
+]
